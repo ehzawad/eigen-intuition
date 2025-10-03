@@ -4,18 +4,18 @@ Interactive geometric visualizations for building intuition about eigenvalues an
 
 ## Overview
 
-This project provides five focused interactive canvases that progressively build understanding of eigenstructure through direct geometric visualization. Each slice demonstrates one key perspective with minimal UI and crisp visuals.
+This project provides six focused interactive canvases that progressively build understanding of eigenstructure through direct geometric visualization. Each perspective demonstrates one key insight with minimal UI and crisp visuals.
 
 ## Features
 
-### Five Interactive Perspectives
+### Six Interactive Perspectives
 
-1. **Plane Vectors + Eigen Rays**
+1. **Vector Field**
    - Visualize how generic vectors rotate and scale under linear transformation
    - Eigenvectors appear as invariant rays (colored) that only scale, never rotate
    - Draggable probe vector for exploration
 
-2. **Deformation Grid**
+2. **Grid Transform**
    - Watch a square grid transform under matrix A
    - Determinant controls area scaling and orientation
    - Eigenvector lines remain invariant under transformation
@@ -25,15 +25,21 @@ This project provides five focused interactive canvases that progressively build
    - Compare eigenvectors (invariant directions) vs SVD axes (principal stretch)
    - Understand the distinction between eigen and singular decompositions
 
-4. **Complex Eigenvalue Regime**
+4. **Spiral Motion**
    - When discriminant Δ < 0, no real eigenvectors exist
    - Trajectories spiral (rotation + scaling)
    - Visualize modulus ρ (scale factor) and angle θ (rotation)
 
-5. **Repeated/Defective Eigenvalues**
+5. **Jordan Form**
    - Repeated eigenvalue (Δ = 0) can be diagonalizable or defective
    - Defective matrices show Jordan block behavior: shear along eigenline
    - Contrast with scalar matrices (all vectors are eigenvectors)
+
+6. **3D View**
+   - Interactive 3D visualization with orbital camera controls
+   - Matrix transforms vectors in the XY plane with Z-axis for spatial depth
+   - Eigenvectors rendered as 3D arrows
+   - Animated grid deformation in 3D space
 
 ## Mathematical Foundation
 
@@ -50,8 +56,10 @@ This project provides five focused interactive canvases that progressively build
 - **React 18** - UI framework
 - **Vite** - Build tool and dev server
 - **Tailwind CSS** - Styling
-- **Canvas API** - HiDPI-aware rendering with requestAnimationFrame
-- **No external math libraries** - Pure JavaScript implementation
+- **Canvas API** - 2D visualizations with HiDPI-aware rendering
+- **Three.js + React Three Fiber** - 3D visualization engine
+- **React Three Drei** - Helpers for Three.js (OrbitControls, Grid, etc.)
+- **Hand-rolled linear algebra** - Pure JavaScript 2×2 matrix operations
 
 ## Getting Started
 
@@ -107,7 +115,8 @@ eigen-intuition/
 │   │   ├── GridDeformation.jsx   # Grid deformation
 │   │   ├── CircleToEllipse.jsx   # Circle to ellipse
 │   │   ├── SpiralMotion.jsx      # Complex regime spirals
-│   │   └── JordanBehavior.jsx    # Repeated/defective behavior
+│   │   ├── JordanBehavior.jsx    # Repeated/defective behavior
+│   │   └── EigenSpace3D.jsx      # 3D visualization with Three.js
 │   ├── utils/
 │   │   ├── matrix.js             # 2×2 linear algebra utilities
 │   │   └── useCanvas.js          # Canvas rendering helpers
@@ -144,7 +153,7 @@ MIT
 
 ```bash
 # Create repository on GitHub, then:
-git remote add origin https://github.com/YOUR_USERNAME/eigen-intuition.git
+git remote add origin https://github.com/ehzawad/eigen-intuition.git
 git branch -M main
 git push -u origin main
 ```
