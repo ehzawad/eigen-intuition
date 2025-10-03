@@ -103,11 +103,11 @@ eigen-intuition/
 ├── src/
 │   ├── components/
 │   │   ├── MatrixInput.jsx      # Matrix controls and presets
-│   │   ├── Slice1.jsx            # Plane vectors visualization
-│   │   ├── Slice2.jsx            # Grid deformation
-│   │   ├── Slice3.jsx            # Circle to ellipse
-│   │   ├── Slice4.jsx            # Complex regime spirals
-│   │   └── Slice5.jsx            # Repeated/defective behavior
+│   │   ├── VectorField.jsx       # Vector field visualization
+│   │   ├── GridDeformation.jsx   # Grid deformation
+│   │   ├── CircleToEllipse.jsx   # Circle to ellipse
+│   │   ├── SpiralMotion.jsx      # Complex regime spirals
+│   │   └── JordanBehavior.jsx    # Repeated/defective behavior
 │   ├── utils/
 │   │   ├── matrix.js             # 2×2 linear algebra utilities
 │   │   └── useCanvas.js          # Canvas rendering helpers
@@ -139,6 +139,29 @@ Users should be able to:
 ## License
 
 MIT
+
+## Deployment to GitHub
+
+```bash
+# Create repository on GitHub, then:
+git remote add origin https://github.com/YOUR_USERNAME/eigen-intuition.git
+git branch -M main
+git push -u origin main
+```
+
+For GitHub Pages deployment, add to vite.config.js:
+```javascript
+export default defineConfig({
+  base: '/eigen-intuition/',
+  // ... rest of config
+});
+```
+
+Then build and deploy:
+```bash
+npm run build
+# Deploy the dist/ folder to gh-pages branch
+```
 
 ## Contributing
 
