@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { matmul, interpolateMatrix, svd2x2 } from '../utils/matrix';
 import { createTransform, drawAxes } from '../utils/useCanvas';
 
-export default function Slice3({ matrix, analysis }) {
+export default function CircleToEllipse({ matrix, analysis }) {
   const canvasRef = useRef(null);
   const [t, setT] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);

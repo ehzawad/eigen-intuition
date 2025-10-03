@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import MatrixInput from './components/MatrixInput';
-import Slice1 from './components/Slice1';
-import Slice2 from './components/Slice2';
-import Slice3 from './components/Slice3';
-import Slice4 from './components/Slice4';
-import Slice5 from './components/Slice5';
+import VectorField from './components/VectorField';
+import GridDeformation from './components/GridDeformation';
+import CircleToEllipse from './components/CircleToEllipse';
+import SpiralMotion from './components/SpiralMotion';
+import JordanBehavior from './components/JordanBehavior';
 import { analyzeMatrix, PRESETS } from './utils/matrix';
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
   const analysis = analyzeMatrix(matrix);
 
   const tabs = [
-    { id: 0, name: 'Plane Vectors', component: Slice1, color: 'blue', preset: 'diagonalStretch' },
-    { id: 1, name: 'Deformation Grid', component: Slice2, color: 'purple', preset: 'saddle' },
-    { id: 2, name: 'Circle to Ellipse', component: Slice3, color: 'green', preset: 'diagonalStretch' },
-    { id: 3, name: 'Complex Regime', component: Slice4, color: 'amber', preset: 'spiral' },
-    { id: 4, name: 'Repeated/Defective', component: Slice5, color: 'red', preset: 'shear' }
+    { id: 0, name: 'Vector Field', component: VectorField, color: 'blue', preset: 'diagonalStretch', description: 'Eigenvectors as invariant rays' },
+    { id: 1, name: 'Grid Transform', component: GridDeformation, color: 'purple', preset: 'saddle', description: 'Area scaling and deformation' },
+    { id: 2, name: 'Circle to Ellipse', component: CircleToEllipse, color: 'green', preset: 'diagonalStretch', description: 'Eigen vs SVD axes' },
+    { id: 3, name: 'Spiral Motion', component: SpiralMotion, color: 'amber', preset: 'spiral', description: 'Complex eigenvalues' },
+    { id: 4, name: 'Jordan Form', component: JordanBehavior, color: 'red', preset: 'shear', description: 'Defective matrices' }
   ];
 
   // Auto-select appropriate preset when tab changes
@@ -51,15 +51,22 @@ function App() {
               analysis={analysis}
             />
             
-            {/* Quick navigation */}
+            {/* Perspective Guide */}
             <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
-              <h3 className="font-semibold text-sm text-gray-700 mb-3">Quick Navigation</h3>
+              <h3 className="font-semibold text-sm text-gray-700 mb-3">Five Perspectives</h3>
               <div className="space-y-2 text-xs text-gray-600">
-                <p><strong>Slice 1:</strong> See eigenvectors as invariant rays</p>
-                <p><strong>Slice 2:</strong> Grid deformation & determinant</p>
-                <p><strong>Slice 3:</strong> Circle to ellipse, eigen vs SVD axes</p>
-                <p><strong>Slice 4:</strong> Complex eigenvalues and spirals</p>
-                <p><strong>Slice 5:</strong> Repeated eigenvalue and Jordan behavior</p>
+                {tabs.map((tab, idx) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`w-full text-left p-2 rounded transition-colors ${
+                      activeTab === tab.id ? 'bg-blue-50 border-l-2 border-blue-600' : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <p className="font-semibold text-gray-800">{tab.name}</p>
+                    <p className="text-gray-600">{tab.description}</p>
+                  </button>
+                ))}
               </div>
             </div>
 

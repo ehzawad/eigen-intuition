@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { matmul, interpolateMatrix, generateLattice, length } from '../utils/matrix';
 import { createTransform, drawAxes, drawArrow } from '../utils/useCanvas';
 
-export default function Slice5({ matrix, analysis }) {
+export default function JordanBehavior({ matrix, analysis }) {
   const canvasRef = useRef(null);
   const [t, setT] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);

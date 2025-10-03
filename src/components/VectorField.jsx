@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { matmul, interpolateMatrix, generateLattice, length } from '../utils/matrix';
 import { createTransform, drawArrow, drawAxes } from '../utils/useCanvas';
 
-export default function Slice1({ matrix, analysis }) {
+export default function VectorField({ matrix, analysis }) {
   const canvasRef = useRef(null);
   const [t, setT] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -191,7 +191,7 @@ export default function Slice1({ matrix, analysis }) {
     <div className="space-y-4">
       {/* Description */}
       <div className="bg-blue-50 p-3 rounded text-sm">
-        <p className="font-semibold mb-1">Plane Vectors + Eigenvector Rays</p>
+        <p className="font-semibold mb-1">Vector Field & Eigenvector Rays</p>
         <p className="text-gray-700">
           Generic vectors <span className="text-gray-500">(gray)</span> rotate and scale under A.
           Eigenvectors <span className="text-blue-600">(blue/red rays)</span> stay collinear—only scaling occurs.
