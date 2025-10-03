@@ -104,32 +104,6 @@ Each slice automatically loads an appropriate preset when activated.
 - **Defective matrices** (repeated λ with one eigenvector) exhibit shear behavior
 - **SVD axes** differ from eigenvectors unless A is symmetric
 
-## Project Structure
-
-```
-eigen-intuition/
-├── src/
-│   ├── components/
-│   │   ├── MatrixInput.jsx      # Matrix controls and presets
-│   │   ├── VectorField.jsx       # Vector field visualization
-│   │   ├── GridDeformation.jsx   # Grid deformation
-│   │   ├── CircleToEllipse.jsx   # Circle to ellipse
-│   │   ├── SpiralMotion.jsx      # Complex regime spirals
-│   │   ├── JordanBehavior.jsx    # Repeated/defective behavior
-│   │   └── EigenSpace3D.jsx      # 3D visualization with Three.js
-│   ├── utils/
-│   │   ├── matrix.js             # 2×2 linear algebra utilities
-│   │   └── useCanvas.js          # Canvas rendering helpers
-│   ├── App.jsx                   # Main application with tab navigation
-│   ├── main.jsx                  # React entry point
-│   └── index.css                 # Global styles
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
-```
-
 ## Performance
 
 - Optimized for 60fps with requestAnimationFrame
