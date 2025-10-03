@@ -5,6 +5,7 @@ import GridDeformation from './components/GridDeformation';
 import CircleToEllipse from './components/CircleToEllipse';
 import SpiralMotion from './components/SpiralMotion';
 import JordanBehavior from './components/JordanBehavior';
+import EigenSpace3D from './components/EigenSpace3D';
 import { analyzeMatrix, PRESETS } from './utils/matrix';
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
     { id: 1, name: 'Grid Transform', component: GridDeformation, color: 'purple', preset: 'saddle', description: 'Area scaling and deformation' },
     { id: 2, name: 'Circle to Ellipse', component: CircleToEllipse, color: 'green', preset: 'diagonalStretch', description: 'Eigen vs SVD axes' },
     { id: 3, name: 'Spiral Motion', component: SpiralMotion, color: 'amber', preset: 'spiral', description: 'Complex eigenvalues' },
-    { id: 4, name: 'Jordan Form', component: JordanBehavior, color: 'red', preset: 'shear', description: 'Defective matrices' }
+    { id: 4, name: 'Jordan Form', component: JordanBehavior, color: 'red', preset: 'shear', description: 'Defective matrices' },
+    { id: 5, name: '3D View', component: EigenSpace3D, color: 'indigo', preset: 'rotation30', description: '3D spatial perspective' }
   ];
 
   // Auto-select appropriate preset when tab changes
@@ -94,7 +96,8 @@ function App() {
                     purple: isActive ? 'border-purple-600 text-purple-600' : 'border-transparent text-gray-600 hover:text-purple-600',
                     green: isActive ? 'border-green-600 text-green-600' : 'border-transparent text-gray-600 hover:text-green-600',
                     amber: isActive ? 'border-amber-600 text-amber-600' : 'border-transparent text-gray-600 hover:text-amber-600',
-                    red: isActive ? 'border-red-600 text-red-600' : 'border-transparent text-gray-600 hover:text-red-600'
+                    red: isActive ? 'border-red-600 text-red-600' : 'border-transparent text-gray-600 hover:text-red-600',
+                    indigo: isActive ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-600 hover:text-indigo-600'
                   };
                   
                   return (
